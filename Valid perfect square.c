@@ -1,0 +1,23 @@
+#include <stdbool.h>
+
+bool isPerfectSquare(int num) {
+    int left = 1;
+    int right = num;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        int quotient = num / mid;
+
+        if (quotient == mid && num % mid == 0) {
+            return true;
+        }
+
+        if (mid > quotient) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
+    }
+
+    return false;
+}
